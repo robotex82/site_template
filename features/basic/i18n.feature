@@ -5,10 +5,10 @@ Feature: Internationalization
   
   Scenario: Access the home page in english
     Given I am not authenticated
-    When I am on the english home page
+    When I am on the "en" locale home page
     Then I should see "[en]home#index"
     
   Scenario: Access the home page in german
     Given I am not authenticated
-    When I am on the german home page
+    When I am on the "de" locale home page
     Then I should see "[de]home#index"

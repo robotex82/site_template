@@ -1,7 +1,4 @@
-When /^I am on the english home page$/ do
-  visit '/en'
+When /^I am on the "(.*?)" locale home page$/ do |locale|
+  visit "/#{locale}"
 end
 
-When /^I am on the german home page$/ do
-  visit '/de'
-end

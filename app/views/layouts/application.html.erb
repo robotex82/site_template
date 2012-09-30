@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="<%= I18n.locale %>">
   <head>
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=Edge,chrome=1">
@@ -39,18 +39,15 @@
     <div class="navbar navbar-fixed-top">
       <div class="navbar-inner">
         <div class="container">
-          <a class="btn btn-navbar" data-target=".nav-collapse" data-toggle="collapse">
-            <span class="icon-bar"></span>
-            <span class="icon-bar"></span>
-            <span class="icon-bar"></span>
-          </a>
           <a class="brand" href="#">SiteTemplate</a>
           <div class="container nav-collapse">
-            <ul class="nav">
-              <li><%= link_to "Link1", "/path1"  %></li>
-              <li><%= link_to "Link2", "/path2"  %></li>
-              <li><%= link_to "Link3", "/path3"  %></li>
-            </ul>
+            <div id="main_navigation"> 
+              <%= render_navigation :context => :main, :expand_all => true, :renderer => :bootstrap %> 
+            </div>
+
+            <div class="pull-right" id="i18n_navigation"> 
+              <%= render_navigation :context => :i18n, :expand_all => true, :renderer => :bootstrap %>
+            </div> 
           </div><!--/.nav-collapse -->
         </div>
       </div>
@@ -58,10 +55,18 @@
 
     <div class="container">
       <div class="content">
+
+        <div class="row">
+          <div class="span12" id="page_header">
+            <%= render 'frontend/page_header' %>
+          </div>
+        </div>
+
         <div class="row">
            <div class="span9">
               <%= yield %>
             </div>
+
             <div class="span3">
               <div class="well sidebar-nav">
                 <h3>Sidebar</h3>
@@ -73,6 +78,7 @@
                 </ul>
               </div><!--/.well -->
             </div><!--/span-->
+
         </div><!--/row-->
       </div><!--/content-->
 

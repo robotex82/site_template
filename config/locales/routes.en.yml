@@ -1,0 +1,5 @@
+en:
+  named_routes_path:
+    about: about
+    imprint: imprint
+
