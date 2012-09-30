@@ -33,60 +33,49 @@
     <!-- For all other devices -->
     <!-- Size should be 32 x 32 pixels -->
     <%= favicon_link_tag 'images/favicon.ico', :rel => 'shortcut icon' %>
+
+    <!-- Google analytics -->
+    <%= render 'frontend/google_analytics' %>
   </head>
   <body>
+    <div class="navbar navbar-fixed-top" id="navigation">
+      <%= render 'frontend/main_navigation' %>
+    </div>
 
-    <div class="navbar navbar-fixed-top">
-      <div class="navbar-inner">
-        <div class="container">
-          <a class="brand" href="#">SiteTemplate</a>
-          <div class="container nav-collapse">
-            <div id="main_navigation"> 
-              <%= render_navigation :context => :main, :expand_all => true, :renderer => :bootstrap %> 
-            </div>
-
-            <div class="pull-right" id="i18n_navigation"> 
-              <%= render_navigation :context => :i18n, :expand_all => true, :renderer => :bootstrap %>
-            </div> 
-          </div><!--/.nav-collapse -->
+    <div class="container">
+      <div class="row">
+        <div class="span12" id="page_header">
+          <%= render 'frontend/page_header' %>
         </div>
       </div>
     </div>
 
     <div class="container">
       <div class="content">
-
         <div class="row">
-          <div class="span12" id="page_header">
-            <%= render 'frontend/page_header' %>
+          <div class="span12" id="flash_messages">
+            <%= bootstrap_flash %>
           </div>
         </div>
 
         <div class="row">
-           <div class="span9">
-              <%= yield %>
-            </div>
+          <div class="span9" id="main_content">
+            <%= yield %>
+          </div>
 
-            <div class="span3">
-              <div class="well sidebar-nav">
-                <h3>Sidebar</h3>
-                <ul class="nav nav-list">
-                  <li class="nav-header">Sidebar</li>
-                  <li><%= link_to "Link1", "/path1"  %></li>
-                  <li><%= link_to "Link2", "/path2"  %></li>
-                  <li><%= link_to "Link3", "/path3"  %></li>
-                </ul>
-              </div><!--/.well -->
-            </div><!--/span-->
+          <div class="span3" id="sidebar">
+            <%= render 'frontend/sidebar'%>
+          </div>
+        </div>
 
-        </div><!--/row-->
       </div><!--/content-->
-
-      <footer>
-        <p>&copy; Company 2012</p>
-      </footer>
-
     </div> <!-- /container -->
+
+    <div class="container">
+      <footer class="footer"> 
+        <%= render 'frontend/page_footer' %>
+      </footer>
+    </div>
 
     <!-- Javascripts
     ================================================== -->
