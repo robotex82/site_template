@@ -3,11 +3,14 @@
     <a class="brand" href="<%= root_path %>"><%= SiteTemplate::Configuration.site_title %></a>
     <div class="container nav-collapse">
       <div id="main_navigation">
-        <%= render_navigation :context => :main, :expand_all => true, :renderer => :bootstrap %>
+        <%= cms_render_navigation :main, :expand_all => true, :renderer => :bootstrap %>
       </div>
 
       <div class="pull-right" id="i18n_navigation">
-        <%= render_navigation :context => :i18n, :expand_all => true, :renderer => :bootstrap %>
+        <%= cms_render_navigation :i18n, :expand_all => true, :renderer => :bootstrap %>
+      </div>
+      <div class="pull-right" id="legal_navigation">
+        <%= cms_render_navigation :legal, :expand_all => true, :renderer => :bootstrap %>
       </div>
     </div><!--/.nav-collapse -->
   </div>

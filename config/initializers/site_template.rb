@@ -12,5 +12,5 @@ SiteTemplate.configure do |config|
   ## site title
   #
   # Default: config.site_title = ''
-  config.site_title = 'Site Template'
+  config.site_title = 'CMS Site Template'
 end

@@ -75,8 +75,11 @@ group :staging, :production do
   gem 'mysql', '2.8.1'
 end
 
-# Add ECM CMS dependencies until the module is stable
-gem 'i18n_routing'
-gem 'simple-navigation'
-gem 'simple-navigation-bootstrap'
+## Add ECM CMS dependencies until the module is stable
+#gem 'i18n_routing'
+#gem 'simple-navigation'
+#gem 'simple-navigation-bootstrap'
 
+gem 'activeadmin'
+gem 'ecm_cms', :path => '~/rails/incubator/ecm_cms-master/'
+gem 'ecm_contact', '~> 1.0.6.pre'

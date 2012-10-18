@@ -1,0 +1,9 @@
+de:
+  ecm:
+    cms:
+      active_admin:
+        menu: CMS
+      navigation:
+        messages:
+          empty: Navigation  %{name} (%{lang}) ist leer
+          not_found: Navigation %{name} (%{lang}) nicht gefunden
