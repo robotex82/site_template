@@ -1,14 +1,15 @@
 <div class="navbar-inner">
   <div class="container">
-    <a class="brand" href="#">SiteTemplate</a>
+    <a class="brand" href="<%= root_path %>"><%= SiteTemplate::Configuration.site_title %></a>
     <div class="container nav-collapse">
-      <div id="main_navigation"> 
-        <%= render_navigation :context => :main, :expand_all => true, :renderer => :bootstrap %> 
+      <div id="main_navigation">
+        <%= render_navigation :context => :main, :expand_all => true, :renderer => :bootstrap %>
       </div>
 
-      <div class="pull-right" id="i18n_navigation"> 
+      <div class="pull-right" id="i18n_navigation">
         <%= render_navigation :context => :i18n, :expand_all => true, :renderer => :bootstrap %>
-      </div> 
+      </div>
     </div><!--/.nav-collapse -->
   </div>
 </div>
+
