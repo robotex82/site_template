@@ -6,5 +6,5 @@ Feature: Basic page access
   Scenario: Access the home page
     Given I am not authenticated
     When I am on the home page
-    Then I should see "[de]home#index"
+    Then I should see "Home (de)"
 

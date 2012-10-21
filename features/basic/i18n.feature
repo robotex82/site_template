@@ -6,9 +6,9 @@ Feature: Internationalization
   Scenario: Access the home page in english
     Given I am not authenticated
     When I am on the "en" locale home page
-    Then I should see "[en]home#index"
+    Then I should see "Home (en)"
     
   Scenario: Access the home page in german
     Given I am not authenticated
     When I am on the "de" locale home page
-    Then I should see "[de]home#index"
+    Then I should see "Home (de)"

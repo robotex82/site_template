@@ -13,10 +13,10 @@ Feature: The front page has certain required links
     And I should be on the "<page_path>" page
 
     Scenarios: Let's go visit header links
-    | anchor  | page_path   |
-    | about   | /en/about   |
-    | home    | /en         |
-    | imprint | /en/imprint |
+    | anchor   | page_path    |
+    | About us | /en/about-us |
+    | Home     | /en          |
+    | Imprint  | /en/imprint  |
 
   Scenario Outline: Reader visits header links on german page
     Given I am not authenticated
@@ -27,6 +27,6 @@ Feature: The front page has certain required links
 
     Scenarios: Let's go visit header links
     | anchor    | page_path     |
-    | Über      | /de/ueber     |
+    | Über      | /de/ueber-uns |
     | Home      | /de           |
     | Impressum | /de/impressum |
