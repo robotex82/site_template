@@ -73,5 +73,9 @@ module SiteTemplate
 
     # Version of your assets, change this if you want to expire all your assets
     config.assets.version = '1.0'
+
+    # Additional assets
+    config.assets.precompile += %w(frontend.css frontend.js)
+    config.assets.precompile += %w(frontend/*)
   end
 end
