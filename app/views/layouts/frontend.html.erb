@@ -1,87 +1,83 @@
 <!DOCTYPE html>
 <html lang="<%= I18n.locale %>">
-  <head>
-    <meta charset="utf-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=Edge,chrome=1">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title><%= SiteTemplate::Configuration.site_title %> - <%= content_for?(:title) ? yield(:title) : nil %></title>
-    <%= csrf_meta_tags %>
+<head>
+  <!-- stylesheets -->
+  <%= stylesheet_link_tag    "frontend", :media => "all" %>
 
-    <!-- Le HTML5 shim, for IE6-8 support of HTML elements -->
-    <!--[if lt IE 9]>
-      <script src="http://html5shim.googlecode.com/svn/trunk/html5.js" type="text/javascript"></script>
-    <![endif]-->
+  <!-- favicons -->
+  <%= render 'frontend/favicons' %>
 
-    <%= stylesheet_link_tag "frontend", :media => "all" %>
+  <!-- google fonts -->
+  <link href='http://fonts.googleapis.com/css?family=Basic' rel='stylesheet' type='text/css'>
 
-    <!-- For third-generation iPad with high-resolution Retina display: -->
-    <!-- Size should be 144 x 144 pixels -->
-    <%= favicon_link_tag '/assets/application/favicons/apple-touch-icon-144x144-precomposed.png', :rel => 'apple-touch-icon-precomposed', :type => 'image/png', :sizes => '144x144' %>
+  <!-- javascripts -->
+  <%= javascript_include_tag "frontend" %>
 
-    <!-- For iPhone with high-resolution Retina display: -->
-    <!-- Size should be 114 x 114 pixels -->
-    <%= favicon_link_tag '/assets/application/favicons/apple-touch-icon-114x114-precomposed.png', :rel => 'apple-touch-icon-precomposed', :type => 'image/png', :sizes => '114x114' %>
+  <!-- google stuff -->
+  <%= render 'frontend/google_analytics' %>
 
-    <!-- For first- and second-generation iPad: -->
-    <!-- Size should be 72 x 72 pixels -->
-    <%= favicon_link_tag '/assets/application/favicons/apple-touch-icon-72x72-precomposed.png', :rel => 'apple-touch-icon-precomposed', :type => 'image/png', :sizes => '72x72' %>
+  <!-- ecm cms core -->
+  <% if content_for?(:meta_description) %>
+    <meta name="description" content="<%= yield(:meta_description) %>" />
+  <% end %>
+  <% if content_for?(:title) %>
+    <title><%= yield(:title) %></title>
+  <% end %>
 
-    <!-- For non-Retina iPhone, iPod Touch, and Android 2.1+ devices: -->
-    <!-- Size should be 57 x 57 pixels -->
-    <%= favicon_link_tag '/assets/application/favicons/apple-touch-icon-precomposed.png', :rel => 'apple-touch-icon-precomposed', :type => 'image/png' %>
+  <!-- rails -->
+  <%= csrf_meta_tag %>
 
-    <!-- For all other devices -->
-    <!-- Size should be 32 x 32 pixels -->
-    <%= favicon_link_tag '/assets/application/favicons/favicon.ico', :rel => 'shortcut icon' %>
+  <!-- twitter bootstrap -->
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=Edge,chrome=1">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-    <!-- Google analytics -->
-    <%= render 'frontend/google_analytics' %>
-  </head>
-  <body>
-    <div class="navbar navbar-fixed-top" id="navigation">
-      <%= render 'frontend/main_navigation' %>
-    </div>
 
-    <div class="container">
-      <div class="row">
-        <div class="span12" id="page_header">
-          <%= render 'frontend/page_header' %>
-        </div>
+  <!-- Le HTML5 shim, for IE6-8 support of HTML elements -->
+  <!--[if lt IE 9]>
+    <script src="http://html5shim.googlecode.com/svn/trunk/html5.js" type="text/javascript"></script>
+  <![endif]-->
+</head>
+<body>
+  <div class="navbar navbar-fixed-top" id="navigation">
+    <%= render 'frontend/main_navigation' %>
+  </div>
+
+  <div class="container">
+    <div class="row">
+      <div class="span12" id="page_header">
+        <%= render 'frontend/page_header' %>
       </div>
     </div>
+  </div>
 
-    <div class="container">
-      <div class="content">
-        <div class="row">
-          <div class="span12" id="flash_messages">
-            <%= bootstrap_flash %>
-          </div>
+  <div class="container">
+    <div class="content">
+      <div class="row">
+        <div class="span12" id="flash_messages">
+          <%= bootstrap_flash %>
+        </div>
+      </div>
+
+      <div class="row">
+        <div class="span9" id="main_content">
+          <%= yield %>
         </div>
 
-        <div class="row">
-          <div class="span9" id="main_content">
-            <%= yield %>
-          </div>
-
-          <div class="span3" id="sidebar">
-            <%= render 'frontend/sidebar'%>
-          </div>
+        <div class="span3" id="sidebar">
+          <%= render 'frontend/sidebar'%>
         </div>
+      </div>
 
-      </div><!--/content-->
-    </div> <!-- /container -->
+    </div><!--/content-->
+  </div> <!-- /container -->
 
-    <div class="container">
-      <footer class="footer">
-        <%= render 'frontend/page_footer' %>
-      </footer>
-    </div>
+  <div class="container">
+    <footer class="footer">
+      <%= render 'frontend/page_footer' %>
+    </footer>
+  </div>
 
-    <!-- Javascripts
-    ================================================== -->
-    <!-- Placed at the end of the document so the pages load faster -->
-    <%= javascript_include_tag "frontend" %>
-
-  </body>
+</body>
 </html>
 

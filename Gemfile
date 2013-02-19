@@ -1,6 +1,6 @@
 source 'https://rubygems.org'
 
-gem 'rails', '3.2.8'
+gem 'rails', '3.2.12'
 
 # Bundle edge Rails instead:
 # gem 'rails', :git => 'git://github.com/rails/rails.git'
@@ -38,43 +38,71 @@ gem 'jquery-rails'
 # To use debugger
 # gem 'ruby-debug'
 
-group :assets do
-  gem 'twitter-bootstrap-rails'
-end
+# Deployment
 
 group :development do
   gem 'domain_factory', :git => 'git://github.com/robotex82/domain_factory.git'
 end
 
+# Server
+
 group :development, :test do
-  gem 'sqlite3'
   gem 'thin'
 end
 
-group :development, :test do
-  gem 'factory_girl_rails', '~> 1.0', :require => false
-  gem 'ffaker', :require => false
-  gem 'guard-rails'
-  gem 'guard-rspec'
-  gem 'guard-bundler'
-  gem 'guard-cucumber'
-  gem 'forgery', :require => false
-end
+# Database
 
-group :test do
-  gem 'capybara', :require => false
-  gem 'cucumber-rails', :require => false
-  gem 'database_cleaner', :require => false
-  gem 'rb-inotify', '~> 0.8.8'
-  gem 'rspec-rails'
-  gem 'shoulda-matchers', :require => false
-  gem 'simplecov', :require => false
+group :development, :test do
+  gem 'sqlite3'
 end
 
 group :staging, :production do
   gem 'mysql', '2.8.1'
 end
 
-gem 'activeadmin'
-gem 'ecm_cms', :path => '~/rails/incubator/ecm_cms-master/'
-gem 'ecm_contact', '~> 1.0.6.pre'
+# Testing
+
+group :development, :test do
+  gem 'guard-rails'
+  gem 'guard-rspec'
+  gem 'guard-bundler'
+end
+
+group :test do
+  gem 'capybara', :require => false
+  gem 'factory_girl_rails', '~> 1.0', :require => false
+  gem 'rb-inotify', '~> 0.8.8'
+  gem 'rspec-rails', :require => false
+  gem 'shoulda-matchers', :require => false
+  gem 'simplecov', :require => false
+end
+
+# CSS Framework
+
+group :assets do
+  gem 'twitter-bootstrap-rails'
+end
+
+group :development do
+  gem 'therubyracer', :platforms => :ruby
+  gem 'less-rails'
+end
+
+# I18n
+
+gem 'rails-i18n'
+
+# Admin area
+
+gem 'devise-i18n'
+# gem 'activeadmin', '~>  0.5.1'
+gem 'activeadmin', :git => 'git://github.com/gregbell/active_admin.git'
+
+# ECM Modules
+
+gem "ecm_cms", "~> 0.0.13.pre"
+# gem 'ecm_cms', :path => '~/rails/modules/ecm_cms-master/'
+
+gem 'ecm_contact', '~> 1.0.14.pre'
+# gem 'ecm_contact', :path => '~/rails/modules/ecm_contact-master/'
+
