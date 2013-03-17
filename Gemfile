@@ -14,7 +14,11 @@ gem 'jquery-rails'
 # Deployment
 group :development do
   gem 'domain_factory', :git => 'git://github.com/robotex82/domain_factory.git'
+  gem 'capistrano'
 end
+
+# Tools
+gem 'yaml_db'
 
 # Server
 group :development, :test do
@@ -61,13 +65,13 @@ gem 'rails-i18n'
 
 # Admin area
 gem 'devise-i18n'
-# gem 'activeadmin', '~>  0.5.1'
-gem 'activeadmin', :git => 'git://github.com/gregbell/active_admin.git'
+gem 'activeadmin', '0.5.0'
+# gem 'activeadmin', :git => 'git://github.com/gregbell/active_admin.git'
 
 # ECM Modules
-gem "ecm_cms", "~> 0.0.13.pre"
+gem "ecm_cms", "~> 1.0.1.pre"
 # gem 'ecm_cms', :path => '~/rails/modules/ecm_cms-master/'
 
-gem 'ecm_contact', '~> 1.0.14.pre'
+gem 'ecm_contact', '~> 1.0.15.pre'
 # gem 'ecm_contact', :path => '~/rails/modules/ecm_contact-master/'
 
